@@ -133,7 +133,7 @@ bool isDegenerated(NoArvore *raiz){
 	}
 }
 
-bool isLinear(NoArvore *raiz){
+bool isDistorcida(NoArvore *raiz){
 	if(raiz != NULL){
 		if(raiz -> left != NULL && raiz -> right != NULL){
 			return false;
@@ -142,12 +142,12 @@ bool isLinear(NoArvore *raiz){
 			if(raiz -> left -> right != NULL){
 				return false;
 			}
-			return isLinear(raiz -> left);
+			return isDistorcida(raiz -> left);
 		}else if(raiz -> right != NULL){
 			if(raiz -> right -> left != NULL){
 				return false;
 			}
-			return isLinear(raiz -> right);
+			return isDistorcida(raiz -> right);
 		}else{
 			return true;
 		}	
@@ -239,7 +239,7 @@ int main() {
 	cout << endl;
 	cout << "eh uma arvore degenerada? " << isDegenerated(raiz);
 	cout << endl;
-	cout << "eh uma arvore linear? " << isLinear(raiz);
+	cout << "eh uma arvore distorcida? " << isDistorcida(raiz);
 	cout << endl;
 	
 	NoArvore *raizDeg = new NoArvore;
@@ -270,6 +270,6 @@ int main() {
 	cout << endl;
 	cout << "eh uma arvore degenerada? " << isDegenerated(raizDeg);
 	cout << endl;
-	cout << "eh uma arvore linear? " << isLinear(raizDeg);
+	cout << "eh uma arvore distorcida? " << isDistorcida(raizDeg);
 	cout << endl;
 }
